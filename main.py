@@ -39,16 +39,17 @@ while is_move:
 
     # Collision with Wall
     if snake.head.xcor() >= 290 or snake.head.xcor() <= -290 or snake.head.ycor() <= -290 or snake.head.ycor() >= 290:
-        scoreboard.game_over()
-        is_move = False
-
+        # scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
     # Collision with the tail
 
     for i in snake.snake[1:]:
 
-        if snake.head.distance(i)<5:
-            scoreboard.game_over()
-            is_move = False
-            break
+        if snake.head.distance(i) < 5:
+            # scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
+            # break
     snake.move()
 screen.exitonclick()
